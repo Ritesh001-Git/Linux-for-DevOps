@@ -126,3 +126,30 @@ Example uses:
 - Managing servers
 
 ---
+
+## Bootloader
+
+A **bootloader** is a program that runs when a computer starts.
+
+Its job is to:
+- Load the operating system into memory
+- Start the kernel
+- Initialize the system
+
+Without a bootloader, the operating system cannot start.
+
+---
+
+## Types of Bootloaders
+
+### GRUB (Grand Unified Bootloader)
+
+GRUB is the **most commonly used bootloader in Linux systems**.
+
+Responsibilities:
+- Loads the Linux kernel
+- Manages the boot process
+- Allows selecting between multiple operating systems
+
+Example:
+A system with both **Linux and Windows** can use GRUB to choose which OS to start.
