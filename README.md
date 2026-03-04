@@ -169,3 +169,42 @@ A system with both **Linux and Windows** can use GRUB to choose which OS to star
 | `id` | Displays user ID (UID), group ID (GID), and groups the user belongs to. | `id` |
 | `sudo` | Stands for **SuperUser DO**. Allows a permitted user to run commands with administrative privileges. | `sudo shutdown`, `sudo reboot` |
 | `apt` | Package manager used in Debian-based Linux systems to install, update, and remove software packages. | `sudo apt-get install docker.io` |
+
+
+## Linux Basic Commands
+
+| Command | Description | Example |
+|-------|-------------|--------|
+| `ls` | Lists files and directories in the current directory. | `ls` |
+| `ls -l` | Lists files with detailed information like permissions, owner, size, and date. | `ls -l` |
+| `clear` | Clears the terminal screen. | `clear` |
+| `mkdir` | Creates a new directory. | `mkdir project` |
+| `pwd` | Shows the current working directory path. | `pwd` |
+| `touch` | Creates a new empty file. | `touch file.txt` |
+| `cd` | Changes the current directory. | `cd project` |
+| `cd ..` | Moves one directory back (to the parent directory). | `cd ..` |
+| `rm` | Removes a file. | `rm file.txt` |
+| `rm -r` | Recursively removes a directory and its contents. | `rm -r cloud` |
+| `cat` | Displays the contents of a file. | `cat file.txt` |
+| `echo` | Prints text to the terminal or writes text to a file. | `echo "Hello Linux" > file.txt` |
+| `head` | Displays the first 10 lines of a file by default. | `head file.txt` |
+| `tail` | Displays the last 10 lines of a file by default. | `tail file.txt` |
+| `less` | Views file content page by page (scrollable). | `less file.txt` |
+| `more` | Displays file content page by page but with limited navigation. | `more file.txt` |
+| `cp` | Copies files or directories. | `cp file.txt backup.txt` |
+| `mv` | Moves or renames files and directories. | `mv file.txt newfile.txt` |
+| `Soft Link (Symbolic Link)` | Creates a shortcut pointing to another file. | `ln -s /path/to/file softlink` |
+| `Hard Link` | Creates another reference to the same file data on disk. | `ln /path/to/file hardlink` |
+| `cut` | Extracts specific columns or fields from a file. | `cut -c 1-5 file.txt > output.txt` |
+| `tee` | Writes output to both the terminal and a file. | `ls \| tee output.txt` |
+| `sort` | Sorts lines of text files alphabetically or numerically. | `sort file.txt` |
+| `diff` | Shows differences between two files. | `diff file1.txt file2.txt` |
+| `wc` | Counts lines, words, and characters in a file. | `wc file.txt` |
+| `vi` | Opens the `vi` text editor to create or edit files. | `vi file.txt` |
+| `df` | Shows disk space usage of file systems. | `df -h` |
+| `top` | Displays real-time system processes and resource usage. | `top` |
+| `fuser` | Shows which process is using a file or port. | `fuser file.txt` |
+| `kill` | Terminates a process using its process ID (PID). | `kill 1234` |
+| `nohup` | Runs a command that continues running even after logout, output saved to `nohup.out`. | `nohup python app.py &` |
+| `vmstat` | Displays system performance information such as memory, processes, and CPU usage. | `vmstat` |
+| `vmstat -a` | Shows active and inactive memory information. | `vmstat -a` |
