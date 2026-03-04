@@ -15,6 +15,7 @@ This is because Linux is **stable, secure, customizable, and efficient for serve
 
 ---
 ## Linux Architecture Diagram
+<img src="linux-arch.png" width="700">
 
 ## Types of Applications
 
