@@ -592,7 +592,7 @@ These commands are heavily used in **DevOps, log analysis, and automation tasks*
 
 ---
 
-# 1. AWK
+### 1. AWK
 
 `awk` is a powerful **text processing tool** used to extract and manipulate data from files, especially column-based data.
 
@@ -611,7 +611,7 @@ Prints column 1 and column 3 from `data.txt`.
 
 ---
 
-# 2. SED
+### 2. SED
 
 `sed` (Stream Editor) is used to **modify text, replace words, delete lines, or edit files automatically**.
 
@@ -629,7 +629,7 @@ Replaces all `error` words with `warning`.
 
 ---
 
-# 3. GREP
+### 3. GREP
 
 `grep` is used to **search for patterns or text inside files**.
 
