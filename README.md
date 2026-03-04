@@ -34,3 +34,34 @@ Examples:
 - Gmail
 - Facebook
 - Online banking systems
+
+## Web Server vs App Server
+
+### Web Server
+A **web server** handles **static content** and delivers it to users through HTTP & HTTPS.
+
+Static content includes:
+- HTML files
+- CSS files
+- Images
+- JavaScript files
+
+Example Web Servers:
+- Nginx
+- Apache
+
+### Application Server
+An **application server** handles **dynamic content**.  
+It runs backend logic and processes user requests.
+
+Examples:
+- Django (Python)
+- Node.js (JavaScript)
+- Spring Boot (Java)
+
+Dynamic content examples:
+- Login systems
+- Database queries
+- Personalized dashboards
+
+---
