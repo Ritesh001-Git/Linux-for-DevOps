@@ -81,3 +81,30 @@ Dynamic content examples:
 - Highly customizable
 
 ---
+
+## What is a Kernel
+
+The **kernel is the core (heart) of an operating system**.
+
+It acts as a bridge between:
+- Hardware (CPU, memory, devices)
+- Software (applications and programs)
+
+The kernel controls how the system uses hardware resources.
+
+---
+
+## Linux Kernel
+
+The **Linux kernel** manages communication between hardware and software.
+
+Main responsibilities include:
+- Process management
+- Memory management
+- Device management
+- File system management
+- System security
+
+It ensures programs can safely access system resources.
+
+---
