@@ -694,7 +694,7 @@ Example:
 
 - Attaching an **EBS volume to an EC2 instance**
 - After attachment, the disk appears as something like: `/dev/xvdc`
-- 
+
 But it **cannot be used yet** until it is mounted.
 
 ---
@@ -705,7 +705,7 @@ Mounting means **binding the disk to a directory in the filesystem** so the OS c
 
 Example: Disk → mounted to /data directory
 
-Now the storage is accessible through `/data`.
+Now the storage is accessible through `/data`
 
 ---
 
@@ -721,3 +721,35 @@ In simple terms:
 
 - **Attach → connect storage to the machine**
 - **Mount → make that storage usable in the operating system**
+
+## Text Processing Commands (sort, uniq)
+
+These commands are commonly used in **log analysis, filtering output, and data processing** in Linux.
+
+| Command | Description | Example |
+|-------|-------------|--------|
+| `sort` | Sorts lines of text alphabetically or numerically. | `sort file.txt` |
+| `sort -n` | Sorts numbers numerically instead of alphabetically. | `sort -n numbers.txt` |
+| `sort -r` | Sorts in reverse order. | `sort -r file.txt` |
+| `sort -u` | Sorts and removes duplicate lines. | `sort -u file.txt` |
+| `uniq` | Removes duplicate lines from sorted input. | `uniq file.txt` |
+| `uniq -c` | Counts occurrences of duplicate lines. | `uniq -c file.txt` |
+| `uniq -d` | Displays only duplicate lines. | `uniq -d file.txt` |
+
+### Important Note
+
+`uniq` only works correctly when the input is **sorted**.
+
+Example: `sort file.txt | uniq`
+
+---
+
+### Useful DevOps Examples
+
+Count repeated IPs in logs: `cat access.log | awk '{print $1}' | sort | uniq -c`
+
+Find most frequent entries: `cat access.log | sort | uniq -c | sort -nr`
+
+Find duplicate lines in a file: `sort file.txt | uniq -d`
+
+This finds which IP caused the most 500 errors: `cat access.log | grep 500 | awk '{print $1}' | sort | uniq -c | sort -nr`
