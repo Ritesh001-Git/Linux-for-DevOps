@@ -15,3 +15,22 @@ This is because Linux is **stable, secure, customizable, and efficient for serve
 
 ---
 
+## Types of Applications
+
+Applications can mainly be divided into two types:
+
+### Standalone Applications
+Standalone applications run **directly on a computer without needing a web browser or internet connection**.
+
+Examples:
+- MS Word
+- VLC Media Player
+- Calculator apps
+
+### Web Applications
+Web applications run on **servers and are accessed through web browsers over the internet**.
+
+Examples:
+- Gmail
+- Facebook
+- Online banking systems
