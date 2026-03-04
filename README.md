@@ -455,3 +455,79 @@ Note:
 |------|------|
 | `tar -cvzf name.tar.gz dev` | Create compressed archive |
 | `tar -xvzf name.tar.gz` | Extract compressed archive |
+
+## File Transfer Commands (Local ↔ Server)
+
+### 1. SCP (Secure Copy)
+
+`scp` is used to **securely copy files between a local machine and a remote server using SSH**.  
+It encrypts the data transfer and is commonly used with **AWS EC2 instances**.
+
+---
+
+### Local → Server File Transfer
+
+General command structure: `scp -i key.pem file.txt ubuntu@server-ip:/home/ubuntu`
+
+Explanation of each part:
+
+| Part | Meaning |
+|-----|------|
+| `scp` | Secure copy command used to transfer files over SSH |
+| `-i` | Specifies the **private key file** used for authentication |
+| `key.pem` | The **AWS private key (.pem)** used to connect to the server |
+| `file.txt` | File from your **local system** that you want to transfer |
+| `ubuntu@server-ip` | Username and server address |
+| `:/home/ubuntu` | Destination directory on the server |
+
+Example: `scp -i my-key.pem file.txt ubuntu@ec2-12-34-56-78.compute.amazonaws.com:/home/ubuntu`
+
+This command will **copy `file.txt` from your local machine to the `/home/ubuntu` directory on the server**.
+
+---
+
+### Server → Local File Transfer
+
+General command structure: `scp -i key.pem -r ubuntu@server-ip:/home/ubuntu/cloud`
+
+Explanation:
+
+| Part | Meaning |
+|-----|------|
+| `scp` | Secure copy command |
+| `-i key.pem` | Private key for server authentication |
+| `-r` | Recursively copy directories |
+| `ubuntu@server-ip` | Remote server address |
+| `/home/ubuntu/cloud` | File or folder on the server |
+| `.` | Current directory on local machine |
+
+Example: `scp -i my-key.pem -r ubuntu@ec2-12-34-56-78.compute.amazonaws.com:/home/ubuntu/cloud`
+
+This command will **copy the `cloud` directory from the server to your local machine**.
+
+---
+
+# 2. RSYNC (Remote Sync)
+
+`rsync` is used to **synchronize files and directories between systems efficiently**.  
+It transfers **only changed data**, making it faster than `scp` for large transfers.
+
+---
+
+### Remote Sync Command
+
+General command structure: `rsync -avjz -e "ssh -i linux-dev.pem" /local/path ubuntu@server-ip:/home/ubuntu`
+
+Explanation of flags:
+
+| Flag | Meaning |
+|----|----|
+| `-a` | Archive mode (preserves permissions, timestamps, etc.) |
+| `-v` | Verbose output |
+| `-j` | Compression during transfer |
+| `-z` | Enables compression for faster transfer |
+| `-e` | Specifies remote shell to use (SSH) |
+
+Example: `rsync -avjz -e "ssh -i Downloads/linux-dev.pem" ./project ubuntu@ec2-12-34-56-78.compute.amazonaws.com:/home/ubuntu`
+
+This command will **synchronize the local `project` folder to the server's `/home/ubuntu` directory**.
