@@ -65,3 +65,19 @@ Dynamic content examples:
 - Personalized dashboards
 
 ---
+
+## Windows vs Linux
+
+### Windows
+- Commercial and **licensed operating system**
+- Mostly used for **general personal computing**
+- Graphical interface focused
+- Less terminal-based work
+
+### Linux
+- Distributed under **General Public License (GPL)**
+- Strong focus on **development and server environments**
+- Heavy use of **terminal, scripting, and automation**
+- Highly customizable
+
+---
