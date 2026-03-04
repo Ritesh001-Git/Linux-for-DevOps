@@ -531,3 +531,38 @@ Explanation of flags:
 Example: `rsync -avjz -e "ssh -i Downloads/linux-dev.pem" ./project ubuntu@ec2-12-34-56-78.compute.amazonaws.com:/home/ubuntu`
 
 This command will **synchronize the local `project` folder to the server's `/home/ubuntu` directory**.
+
+## Networking Commands
+
+| Command | Description | Example |
+|-------|-------------|--------|
+| `sudo apt install net-tools -y` | Installs **net-tools package** which provides networking utilities like `ifconfig`, `netstat`, etc. (`-y` automatically confirms installation). | `sudo apt install net-tools -y` |
+| `ping` | Checks connectivity between your system and another host by sending ICMP packets. | `ping google.com` |
+| `netstat` | Displays network connections, routing tables, interface statistics, and listening ports. | `netstat -tuln` |
+| `ifconfig` | Displays or configures network interfaces and IP addresses. | `ifconfig` |
+| `ifconfig \| grep inet` | Shows only the **IP address lines** from the interface output. | `ifconfig \| grep inet` |
+| `traceroute` | Shows the path packets take to reach a destination server. | `traceroute youtube.com` |
+| `tracepath` | Similar to traceroute but does not require root privileges. | `tracepath youtube.com` |
+| `mtr` | Combines `ping` and `traceroute` to provide real-time network diagnostics. | `mtr youtube.com` |
+| `nslookup` | Queries DNS servers to obtain domain name or IP address mapping. | `nslookup youtube.com` |
+| `telnet` | Tests connectivity to a specific port on a server. | `telnet youtube.com 80` |
+| `hostname` | Displays the current system hostname. | `hostname` |
+| Change hostname | Hostname can be configured in `/etc/hosts` by mapping an IP with a hostname. | `sudo vi /etc/hosts` |
+| `iwconfig` | Displays wireless network interface configuration. | `iwconfig` |
+| `ss` | Modern replacement for `netstat` to display socket statistics and network connections. | `ss -tuln` |
+| `dig` | DNS lookup utility used to query DNS records. | `dig youtube.com` |
+| `whois` | Displays domain ownership, registration, and administrative information. | `whois youtube.com` |
+| `dig +short` | Displays only the IP address of the domain. | `dig youtube.com +short` |
+| `dig +mx` | Displays mail exchange records of a domain. | `dig youtube.com +mx` |
+| `dig +trace` | Shows full DNS resolution path from root servers. | `dig youtube.com +trace` |
+| `arp` | Displays or modifies the ARP table (maps IP addresses to MAC addresses). | `arp -a` |
+| `ip link` | Shows network interface status and MAC addresses. | `ip link` |
+| `curl` | Sends HTTP requests to APIs or websites from the command line. | `curl -X GET https://api.example.com` |
+| `curl \| jq` | Pipes curl output to `jq` for **formatted JSON output**. | `curl -X GET https://api.example.com \| jq` |
+| `wget` | Downloads files from the internet via HTTP/HTTPS/FTP. | `wget https://example.com/file.zip` |
+| `sudo iptables -L` | Lists firewall rules configured in iptables. | `sudo iptables -L` |
+| `watch` | Runs a command repeatedly at intervals and shows updated output. | `watch -n 5 top` |
+| `watch mtr` | Continuously monitors network path statistics. | `watch mtr youtube.com` |
+| `nmap` | Network scanner used to discover open ports, services, and operating systems. | `nmap 192.168.1.1` |
+| `nmap -sV` | Detects service versions running on open ports. | `nmap -sV 192.168.1.1` |
+| `nmap -sn` | Performs a **ping scan** to detect active hosts on the network. | `nmap -sn 192.168.1.0/24` |
