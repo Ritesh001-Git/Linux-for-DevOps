@@ -653,3 +653,71 @@ These commands are extremely useful in **DevOps tasks**, such as:
 - Filtering configuration files
 - Extracting metrics from logs
 - Processing structured data quickly
+
+## Volume & Storage Commands
+
+| Command | Description | Example |
+|-------|-------------|--------|
+| `lsblk` | Lists all **block devices** (disks and partitions) attached to the system. Useful for checking newly attached volumes. | `lsblk` |
+| `df -h` | Shows **disk space usage** of all mounted file systems in human-readable format (GB/MB). | `df -h` |
+| `df -h /` | Displays the **storage usage of the root filesystem**. | `df -h /` |
+
+### Understanding Block Devices
+
+When you run: `lsblk`
+
+Example output may include device names like:
+`xvda` `xvdb` `xvdc` `nvme0n1`
+
+Meaning:
+
+- `/dev/xvda` → Usually the **root volume**
+- `/dev/xvdb`, `/dev/xvdc` → Additional attached disks
+- `/dev/nvme0n1` → NVMe storage devices (common in modern EC2 instances)
+
+These represent **physical or virtual disks attached to the system**.
+
+---
+
+# Difference Between Attach and Mount
+
+| Concept | Meaning |
+|------|------|
+| **Attach** | A **cloud-level / hardware-level operation** where a storage device (like an AWS EBS volume) is connected to a server or instance. |
+| **Mount** | An **OS-level operation** that makes the attached storage accessible inside the filesystem. |
+
+### Attach
+
+Attaching means **connecting a storage device to a server**.
+
+Example:
+
+- Attaching an **EBS volume to an EC2 instance**
+- After attachment, the disk appears as something like: `/dev/xvdc`
+- 
+But it **cannot be used yet** until it is mounted.
+
+---
+
+### Mount
+
+Mounting means **binding the disk to a directory in the filesystem** so the OS can use it.
+
+Example: Disk → mounted to /data directory
+
+Now the storage is accessible through `/data`.
+
+---
+
+# Simple Summary
+
+| Attach | Mount |
+|------|------|
+| Hardware / cloud-level action | OS-level action |
+| Connect storage to server | Make storage usable in filesystem |
+| Example: EBS attached to EC2 | Example: disk mounted to `/data` |
+
+In simple terms:
+
+- **Attach → connect storage to the machine**
+- **Mount → make that storage usable in the operating system**
