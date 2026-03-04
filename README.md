@@ -566,3 +566,19 @@ This command will **synchronize the local `project` folder to the server's `/hom
 | `nmap` | Network scanner used to discover open ports, services, and operating systems. | `nmap 192.168.1.1` |
 | `nmap -sV` | Detects service versions running on open ports. | `nmap -sV 192.168.1.1` |
 | `nmap -sn` | Performs a **ping scan** to detect active hosts on the network. | `nmap -sn 192.168.1.0/24` |
+
+## Process Management Commands
+
+| Command | Description | Example |
+|--------|-------------|--------|
+| `ps` | Displays currently running processes in the system. | `ps aux` |
+| `top` | Shows real-time system processes along with CPU and memory usage. | `top` |
+| `jobs` | Lists background jobs running in the current shell session. | `jobs` |
+| `bg` | Resumes a stopped job and runs it in the background. | `bg %1` |
+| `fg` | Brings a background job to the foreground. | `fg %1` |
+| `kill` | Terminates a process using its process ID (PID). | `kill 1234` |
+| `kill -9` | Forcefully terminates a process. | `kill -9 1234` |
+| `nohup` | Runs a process that continues even after the user logs out. Output is saved to `nohup.out`. | `nohup python app.py &` |
+| `htop` | Interactive process viewer (better version of `top`). | `htop` |
+| `nice` | Starts a process with a specific priority level. | `nice -n 10 python app.py` |
+| `renice` | Changes the priority of a running process. | `renice 10 -p 1234` |
