@@ -507,7 +507,7 @@ This command will **copy the `cloud` directory from the server to your local mac
 
 ---
 
-# 2. RSYNC (Remote Sync)
+### 2. RSYNC (Remote Sync)
 
 `rsync` is used to **synchronize files and directories between systems efficiently**.  
 It transfers **only changed data**, making it faster than `scp` for large transfers.
