@@ -14,6 +14,7 @@ A key fact often mentioned in tech:
 This is because Linux is **stable, secure, customizable, and efficient for servers and development**.
 
 ---
+## Linux Architecture Diagram
 
 ## Types of Applications
 
