@@ -108,3 +108,21 @@ Main responsibilities include:
 It ensures programs can safely access system resources.
 
 ---
+
+## Shell Scripting
+
+A **shell** is a command-line interface that allows users to interact with the operating system.
+
+Shell scripting is a way to **write scripts that communicate with the Linux kernel and automate tasks**.
+
+Common shells:
+- Bash
+- Zsh
+- Sh
+
+Example uses:
+- Automating system tasks
+- Running multiple commands automatically
+- Managing servers
+
+---
