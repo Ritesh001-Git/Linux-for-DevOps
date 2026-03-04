@@ -297,5 +297,161 @@ Example: `ssh -i "my-key.pem" ubuntu@ec2-xx-xxx-xxx-xxx.compute.amazonaws.com`
 #### 6. Successful Connection
 
 After running the command, your terminal will connect to the EC2 server and you will see something like: `ubuntu@ip-172-31-xx-xx:~$`
-
 Now you can **run Linux commands directly on your EC2 server from your terminal**.
+
+## File Permissions in Linux
+
+### Viewing File Permissions
+
+You can check file and directory permissions using:
+
+| Command | Description | Example |
+|--------|-------------|--------|
+| `ls -l` | Displays detailed file information including permissions, owner, group, size, and timestamp. | `ls -l` |
+
+Example output: `-rwxr-xr-- 1 user group 1200 Mar 4 demo.sh`
+
+Explanation:
+
+- **First character**
+  - `d` → directory  
+  - `-` → regular file  
+
+- **Next 9 characters represent permissions**
+`rwx r-x r--` User Group Other
+
+Meaning:
+
+| Symbol | Meaning |
+|------|------|
+| r | Read permission |
+| w | Write permission |
+| x | Execute permission |
+| - | Permission not granted |
+
+Order of permissions: User → Group → Others
+
+
+---
+
+# Permission Numeric System (Binary Representation)
+
+Linux permissions can also be represented using numbers **0–7**.
+
+| Number | Binary | Read (r) | Write (w) | Execute (x) | Meaning |
+|------|------|------|------|------|------|
+| 0 | 000 | - | - | - | No permission |
+| 1 | 001 | - | - | x | Execute only |
+| 2 | 010 | - | w | - | Write only |
+| 3 | 011 | - | w | x | Write + Execute |
+| 4 | 100 | r | - | - | Read only |
+| 5 | 101 | r | - | x | Read + Execute |
+| 6 | 110 | r | w | - | Read + Write |
+| 7 | 111 | r | w | x | Full permission |
+
+Example permission: `chmod 777 cloud`
+
+| Permission | Meaning |
+|------|------|
+| 7 | User → rwx |
+| 7 | Group → rwx |
+| 7 | Others → rwx |
+
+So **777 = Full permission for everyone**.
+
+Example:
+
+| Command | Description |
+|------|------|
+| `chmod 777 cloud` | Full permissions for user, group, and others |
+| `chmod 755 cloud` | User → full access, Group → read & execute, Others → read & execute |
+| `chmod 715 cloud` | User → full access, Group → execute only, Others → read & execute |
+
+---
+
+### Umask (Default File Permissions)
+
+`umask` defines the **default permissions assigned when new files or directories are created**.
+
+| Command | Description | Example |
+|------|------|------|
+| `umask` | Displays the default permission mask for new files | `umask` |
+
+Example output: 0022
+
+
+Meaning:
+
+- User → full permissions
+- Group → read and execute
+- Others → read and execute
+
+*(You mentioned you will add the umask table image manually.)*
+
+---
+
+### Ownership Commands
+
+| Command | Description | Example |
+|------|------|------|
+| `chown` | Changes file or directory owner | `chown devops demo.txt` |
+| `chgrp` | Changes group ownership of a file | `chgrp dev demo.txt` |
+
+---
+
+### Zip Commands
+
+First install zip utility:
+
+| Command | Description |
+|------|------|
+| `sudo apt install zip -y` | Installs zip package |
+
+Note:
+
+`-y` means **automatically answer "yes" during installation**.
+
+#### Zip Operations
+
+| Command | Description | Example |
+|------|------|------|
+| `zip name.zip file.txt` | Compress a single file | `zip data.zip file.txt` |
+| `zip -r name.zip folder` | Compress a directory recursively | `zip -r project.zip devops` |
+| `unzip name.zip` | Extract zip archive | `unzip project.zip` |
+
+---
+
+### Tar Command
+
+`tar` is commonly used in Linux to **archive and compress files or directories**.
+
+### Difference Between ZIP and TAR
+
+| Feature | ZIP | TAR |
+|------|------|------|
+| Compression | Compresses files individually | Mainly archives files |
+| Linux usage | Less common in Linux systems | Very common in Linux |
+| Extensions | `.zip` | `.tar`, `.tar.gz`, `.tar.bz2` |
+
+---
+
+#### Tar Flags
+
+| Flag | Meaning |
+|------|------|
+| `c` | Create archive |
+| `x` | Extract archive |
+| `v` | Verbose (show progress) |
+| `f` | File name |
+| `z` | gzip compression |
+| `j` | bzip2 compression |
+| `C` | Change directory before operation |
+
+---
+
+#### Tar Examples
+
+| Command | Description |
+|------|------|
+| `tar -cvzf name.tar.gz dev` | Create compressed archive |
+| `tar -xvzf name.tar.gz` | Extract compressed archive |
