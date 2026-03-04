@@ -224,3 +224,78 @@ A system with both **Linux and Windows** can use GRUB to choose which OS to star
 | `sudo gpasswd -M user1,user2,user3 groupname` | Adds multiple users to a group at once. | `sudo gpasswd -M ritesh,rahul,aman devops` |
 | `cat /etc/group` | Displays all groups in the system and the users belonging to each group. | `cat /etc/group` |
 | `sudo groupdel groupname` | Deletes a group from the system. | `sudo groupdel devops` |
+
+## SSH (Secure Shell)
+
+### What is SSH
+SSH (Secure Shell) is a **secure network protocol used to connect to remote servers** over the internet.  
+It allows users to **access and manage servers through the command line securely**.
+
+SSH encrypts the communication between the **client (your computer)** and the **server**, which prevents attackers from reading sensitive information like passwords or commands.
+
+---
+
+### SSH Key Authentication
+
+SSH commonly uses **key-based authentication** instead of passwords.
+
+- **Private Key** → Stored securely on the **user's local machine**
+- **Public Key** → Stored on the **server**
+
+When a user tries to connect:
+1. The server checks the public key.
+2. The user proves ownership of the matching private key.
+3. If they match, the connection is allowed.
+
+Example key file:
+
+This `.pem` file is the **private key** used to access the server.
+
+---
+
+### Connecting to an AWS EC2 Instance using SSH
+
+Follow these steps to connect to an EC2 instance:
+
+#### 1. Launch an EC2 Instance
+- Go to AWS Console
+- Open **EC2 Dashboard**
+- Click **Launch Instance**
+- Download the **.pem key pair file**
+
+Example:
+
+---
+
+#### 2. Go to the Connect Tab
+After the instance starts:
+
+1. Select your EC2 instance
+2. Click **Connect**
+3. Choose **SSH Client**
+4. AWS will provide a command like:
+
+
+---
+
+#### 3. Find the Directory of the `.pem` File
+
+Check where your `.pem` file is downloaded.
+
+Example (Downloads folder): `cd /Downloads`
+
+---
+
+#### 4. Go to the Correct Directory
+
+Use the `cd` command to move to the folder where the `.pem` file exists.
+Example: `ssh -i "my-key.pem" ubuntu@ec2-xx-xxx-xxx-xxx.compute.amazonaws.com`
+
+
+---
+
+#### 6. Successful Connection
+
+After running the command, your terminal will connect to the EC2 server and you will see something like: `ubuntu@ip-172-31-xx-xx:~$`
+
+Now you can **run Linux commands directly on your EC2 server from your terminal**.
