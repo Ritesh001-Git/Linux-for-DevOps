@@ -155,3 +155,17 @@ Responsibilities:
 
 Example:
 A system with both **Linux and Windows** can use GRUB to choose which OS to start.
+
+## System Level Commands
+
+| Command | Description | Example |
+|-------|-------------|--------|
+| `uname` | Displays system information such as OS name, kernel version, and architecture. | `uname -a` |
+| `uptime` | Shows how long the system has been running along with current load average. | `uptime` |
+| `date` | Displays the current system date and time. | `date` |
+| `who` | Shows the list of users currently logged into the system. | `who` |
+| `whoami` | Displays the username of the current logged-in user. | `whoami` |
+| `which` | Shows the full path of a command or executable. | `which python` |
+| `id` | Displays user ID (UID), group ID (GID), and groups the user belongs to. | `id` |
+| `sudo` | Stands for **SuperUser DO**. Allows a permitted user to run commands with administrative privileges. | `sudo shutdown`, `sudo reboot` |
+| `apt` | Package manager used in Debian-based Linux systems to install, update, and remove software packages. | `sudo apt-get install docker.io` |
