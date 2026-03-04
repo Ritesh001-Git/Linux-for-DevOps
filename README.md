@@ -582,3 +582,74 @@ This command will **synchronize the local `project` folder to the server's `/hom
 | `htop` | Interactive process viewer (better version of `top`). | `htop` |
 | `nice` | Starts a process with a specific priority level. | `nice -n 10 python app.py` |
 | `renice` | Changes the priority of a running process. | `renice 10 -p 1234` |
+
+## Pro Linux Commands (AWK, SED, GREP)
+
+In Linux, many small text-processing tasks can be done using powerful command-line tools like **AWK, SED, and GREP**.  
+Instead of writing a full **shell script**, these tools allow you to quickly **search, filter, transform, and process text files directly from the terminal**.
+
+These commands are heavily used in **DevOps, log analysis, and automation tasks**.
+
+---
+
+# 1. AWK
+
+`awk` is a powerful **text processing tool** used to extract and manipulate data from files, especially column-based data.
+
+| Command | Description |
+|-------|-------------|
+| `awk '{print}' file.txt` | Prints the entire file |
+| `awk '{print $1}' file.txt` | Prints the first column |
+| `awk '{print $1,$2}' file.txt` | Prints first and second columns |
+| `awk '/INFO/ {print $1,$2}' logs.txt` | Prints columns where line contains "INFO" |
+| `awk '{print NF}' file.txt` | Prints number of fields in each line |
+| `awk '{print NR,$0}' file.txt` | Prints line number with each line |
+| `awk -F ":" '{print $1}' /etc/passwd` | Uses `:` as separator and prints first column |
+
+Example: `awk '{print $1,$3}' data.txt`
+Prints column 1 and column 3 from `data.txt`.
+
+---
+
+# 2. SED
+
+`sed` (Stream Editor) is used to **modify text, replace words, delete lines, or edit files automatically**.
+
+| Command | Description |
+|-------|-------------|
+| `sed 's/linux/unix/' file.txt` | Replace first occurrence of "linux" with "unix" |
+| `sed 's/linux/unix/g' file.txt` | Replace all occurrences in a line |
+| `sed -n '1,5p' file.txt` | Print lines 1 to 5 |
+| `sed '3d' file.txt` | Delete line number 3 |
+| `sed '/ERROR/d' logs.txt` | Delete lines containing "ERROR" |
+| `sed 's/^/> /' file.txt` | Add `>` at the start of every line |
+
+Example: sed `'s/error/warning/g' logs.txt`
+Replaces all `error` words with `warning`.
+
+---
+
+# 3. GREP
+
+`grep` is used to **search for patterns or text inside files**.
+
+| Command | Description |
+|-------|-------------|
+| `grep "error" logs.txt` | Finds lines containing "error" |
+| `grep -i "error" logs.txt` | Case-insensitive search |
+| `grep -n "error" logs.txt` | Shows line numbers with results |
+| `grep -r "config" /etc` | Recursively search inside directories |
+| `grep -v "info" logs.txt` | Shows lines NOT containing "info" |
+| `grep -c "error" logs.txt` | Counts occurrences of "error" |
+
+Example: `grep -i "failed" system.log`
+Finds all lines containing **failed** ignoring case.
+
+---
+
+These commands are extremely useful in **DevOps tasks**, such as:
+
+- Searching logs
+- Filtering configuration files
+- Extracting metrics from logs
+- Processing structured data quickly
