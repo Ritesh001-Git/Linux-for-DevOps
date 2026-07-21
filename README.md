@@ -722,6 +722,19 @@ In simple terms:
 - **Attach → connect storage to the machine**
 - **Mount → make that storage usable in the operating system**
 
+## tee & diff
+
+| Command | Description |
+|---------|-------------|
+| `tee file.txt` | Writes the command output to both the terminal and `file.txt` (overwrites the file if it exists). |
+| `tee -a file.txt` | Appends the command output to `file.txt` while also displaying it on the terminal. |
+| `tee file1.txt file2.txt` | Writes the same output to multiple files and displays it on the terminal. |
+| `diff file1.txt file2.txt` | Compares two files line by line and displays the differences. |
+| `diff -u file1.txt file2.txt` | Compares two files in unified format, commonly used for patches and code reviews. |
+| `diff -r dir1 dir2` | Recursively compares the contents of two directories. |
+| `diff -w file1.txt file2.txt` | Compares two files while ignoring whitespace differences. |
+| `diff <(command1) <(command2)` | Compares the output of two commands using process substitution without creating temporary files. |
+
 ## Text Processing Commands (sort, uniq)
 
 These commands are commonly used in **log analysis, filtering output, and data processing** in Linux.
