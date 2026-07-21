@@ -753,3 +753,7 @@ Find most frequent entries: `cat access.log | sort | uniq -c | sort -nr`
 Find duplicate lines in a file: `sort file.txt | uniq -d`
 
 This finds which IP caused the most 500 errors: `cat access.log | grep 500 | awk '{print $1}' | sort | uniq -c | sort -nr`
+
+Sort the output of `df -h` by the size: `df -h | { head -n1; tail -n +2 | sort -h -k2; }`
+
+ With particular rows: `df -h | awk 'NR > 1 print{$2, $3, $5}' | sort -h k2`
