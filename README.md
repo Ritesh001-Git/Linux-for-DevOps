@@ -225,7 +225,8 @@ A system with both **Linux and Windows** can use GRUB to choose which OS to star
 | `sudo gpasswd -M user1,user2,user3 groupname` | Adds multiple users to a group at once. | `sudo gpasswd -M ritesh,rahul,aman devops` |
 | `cat /etc/group` | Displays all groups in the system and the users belonging to each group. | `cat /etc/group` |
 | `sudo groupdel groupname` | Deletes a group from the system. | `sudo groupdel devops` |
-| `sudo usermod -aG groupname username` |Add the user to a specific group. | `sudo usermod -aG sudo ritesh` |
+| `sudo usermod -aG sudo username` | Give user admin/sudo permissions. | `sudo usermod -aG sudo ritesh` |
+| `sudo groupmod -n new_group_name old_group_name` | Give user admin/sudo permissions. | `sudo groupmod -n DevOps devops` |
 
 ## SSH (Secure Shell)
 
