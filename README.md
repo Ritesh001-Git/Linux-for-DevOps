@@ -228,8 +228,10 @@ A system with both **Linux and Windows** can use GRUB to choose which OS to star
 | `sudo usermod -aG groupname username` | Add a user in a group. | `sudo usermod -aG devops ritesh` |
 | `sudo gpasswd -d username groupname` | Delete a user in a group. | `sudo gpasswd -d ritesh devops` |
 | `sudo usermod -aG sudo username` | Give user admin/sudo permissions. | `sudo usermod -aG sudo ritesh` |
-| `sudo groupmod -n new_group_name old_group_name` | Give user admin/sudo permissions. | `sudo groupmod -n DevOps devops` |
+| `sudo groupmod -n new_group_name old_group_name` | Change group name. | `sudo groupmod -n DevOps devops` |
 | `sudo groupmod -g NEW_GID groupname` | Give user admin/sudo permissions. | `sudo groupmod -g 1005 DevOps` |
+
+#### Linux use SHA-512(old) and yescrypt(new) for password hashing
 
 ## SSH (Secure Shell)
 
