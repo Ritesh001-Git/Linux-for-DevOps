@@ -217,6 +217,7 @@ A system with both **Linux and Windows** can use GRUB to choose which OS to star
 | `sudo adduser -m username` | Creates a new user. The `-m` flag is important because it creates a **home directory** for the user. Without `-m`, the user is created without a personal folder. | `sudo adduser -m ritesh` |
 | `sudo passwd username` | Sets or changes the password of a user. | `sudo passwd ritesh` |
 | `su username` | Switches from the current user to another user. | `su ritesh` |
+| `sudo passwd -l username & sudo passwd -u username` | To lock and unlock the user. | `sudo passwd -l ritesh & sudo passwd -l ritesh` |
 | `cat /etc/passwd` | Displays all users in the system along with their user IDs (UID), group IDs (GID), home directory, and shell information. | `cat /etc/passwd` |
 | `sudo userdel username` | Deletes a user from the system. | `sudo userdel ritesh` |
 | `sudo groupadd groupname` | Creates a new group in the system. | `sudo groupadd devops` |
@@ -224,6 +225,7 @@ A system with both **Linux and Windows** can use GRUB to choose which OS to star
 | `sudo gpasswd -M user1,user2,user3 groupname` | Adds multiple users to a group at once. | `sudo gpasswd -M ritesh,rahul,aman devops` |
 | `cat /etc/group` | Displays all groups in the system and the users belonging to each group. | `cat /etc/group` |
 | `sudo groupdel groupname` | Deletes a group from the system. | `sudo groupdel devops` |
+| `sudo usermod -aG groupname username` |Add the user to a specific group. | `sudo usermod -aG sudo ritesh` |
 
 ## SSH (Secure Shell)
 
