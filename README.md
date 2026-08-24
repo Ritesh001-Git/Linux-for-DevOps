@@ -465,6 +465,7 @@ Note:
 | `tar -cvzf name.tar.gz dev` | Create compressed archive |
 | `tar -xf a1.tar` | Extract compressed archive |
 | `tar -xvzf name.tar.gz` | Extract compressed archive |
+| `tar -xf archive.tar -C /path/to/empty_dir` | Extract compressed archive in another dir|
 
 ## File Transfer Commands (Local ↔ Server)
 
