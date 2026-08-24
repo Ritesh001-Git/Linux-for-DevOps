@@ -461,6 +461,7 @@ Note:
 
 | Command | Description |
 |------|------|
+| `tar -cf achhive.tar f1.txt f2.txt f3.txt` | Create compressed archive |
 | `tar -cvzf name.tar.gz dev` | Create compressed archive |
 | `tar -xvzf name.tar.gz` | Extract compressed archive |
 
