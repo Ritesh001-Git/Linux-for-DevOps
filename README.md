@@ -375,6 +375,15 @@ Example:
 | `chmod 755 cloud` | User → full access, Group → read & execute, Others → read & execute |
 | `chmod 715 cloud` | User → full access, Group → execute only, Others → read & execute |
 
+### Linux Special Permissions Comparison
+
+| Special Permission | Numeric Value | Effect on Executable Files | Effect on Directories | Symbolic Notation | Common Example |
+| :--- | :---: | :--- | :--- | :---: | :--- |
+| **SUID** <br>*(Set User ID)* | `4` | Runs the file with the privileges of the **file owner**, not the user running it. | No practical effect on most Linux systems. | `rws------` | `/usr/bin/passwd` *(allows users to modify root-owned shadow files)* |
+| **SGID** <br>*(Set Group ID)* | `2` | Runs the file with the privileges of the **file's group**. | New files and subdirectories created inside **inherit the parent folder's group** automatically. | `---rws---` | Shared department folders *(collaborative team environments)* |
+| **Sticky Bit** | `1` | No effect on modern Linux systems. | **Prevents users from deleting** or renaming files inside unless they explicitly own the file. | `--------t` | `/tmp` *(publicly writable directory where users can't delete each other's files)* |
+
+
 ---
 
 ### Umask (Default File Permissions)
