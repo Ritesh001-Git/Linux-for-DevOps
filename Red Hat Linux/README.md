@@ -54,6 +54,23 @@ sudo nmcli connection modify dummy02 ipv4.method auto
 sudo nmcli connection up dummy02
 ```
 
+# NetworkManager Configuration – `test01`
+
+| Question | Command |
+|---|---|
+| 1. Create the connection | `sudo nmcli connection add type ethernet ifname enp0s1 con-name test01` |
+| 2. Configure IPv4 manually | `sudo nmcli connection modify test01 ipv4.method manual ipv4.addresses "YOUR_IPV4_ADDRESS/CIDR" ipv4.gateway "YOUR_IPV4_GATEWAY"` |
+| 3. Configure IPv6 manually | `sudo nmcli connection modify test01 ipv6.method manual ipv6.addresses "fd16:4ef1:288d:5698::15/64" ipv6.gateway "fe80::cc08:faff:fee7:3e64"` |
+| 4. Configure both DNS servers | `sudo nmcli connection modify test01 ipv4.dns "YOUR_DNS1,YOUR_DNS2" ipv6.dns "2001:4860:4860::8888,2606:4700:4700::1111"` |
+| 5. Activate the connection | `sudo nmcli connection up test01` |
+| 6. Verify the IPv4 address | `ip -4 addr show dev enp0s1` |
+| 7. Verify the IPv6 address | `ip -6 addr show dev enp0s1` |
+| 8. Verify the IPv4 route | `ip -4 route` |
+| 9. Verify the IPv6 route | `ip -6 route` |
+| 10. Test both gateways using ping | `ping -4 -c 4 YOUR_IPV4_GATEWAY` <br> `ping -6 -c 4 fe80::cc08:faff:fee7:3e64%enp0s1` |
+| 11. Verify the hostname | `hostnamectl` |
+| 12. Display the complete NetworkManager configuration | `nmcli connection show test01` |
+
 ---
 
 ## 2. RHEL Networking
