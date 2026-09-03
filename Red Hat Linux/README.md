@@ -54,7 +54,7 @@ sudo nmcli connection modify dummy02 ipv4.method auto
 sudo nmcli connection up dummy02
 ```
 
-# NetworkManager Configuration – `test01`
+### NetworkManager Configuration
 
 | Question | Command |
 |---|---|
