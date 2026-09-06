@@ -604,6 +604,19 @@ This command will **synchronize the local `project` folder to the server's `/hom
 | `nice` | Starts a process with a specific priority level. | `nice -n 10 python app.py` |
 | `renice` | Changes the priority of a running process. | `renice 10 -p 1234` |
 
+### Important kill signals
+
+| Command | Signal Name | Meaning |
+| :--- | :--- | :--- |
+| `kill -1 PID` | **SIGHUP** | Hang up / reload configuration files in many programs |
+| `kill -2 PID` | **SIGINT** | Interrupt the process (same as `Ctrl+C`) |
+| `kill -9 PID` | **SIGKILL** | Forcefully terminate the process immediately (cannot be ignored) |
+| `kill -15 PID` | **SIGTERM** | Politely ask the process to terminate (default kill signal) |
+| `kill -18 PID` | **SIGCONT** | Resume/continue a previously stopped or paused process |
+| `kill -19 PID` | **SIGSTOP** | Pause/stop the process immediately (cannot be ignored) |
+| `kill -20 PID` | **SIGTSTP** | Terminal stop / pause the process (same as `Ctrl+Z`) |
+
+
 ## Pro Linux Commands (AWK, SED, GREP)
 
 In Linux, many small text-processing tasks can be done using powerful command-line tools like **AWK, SED, and GREP**.  
