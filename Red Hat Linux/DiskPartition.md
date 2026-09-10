@@ -115,7 +115,7 @@ Disk
 
 **Without a file system, Linux cannot properly organize normal files and directories on the partition.**
 
-##### What Does mkfs.ext4 Mean?
+#### What Does mkfs.ext4 Mean?
 
 ```
 The command:
@@ -131,7 +131,7 @@ ext4 = The type of file system
 It creates an EXT4 file system on /dev/vdb1.
 ```
 
-##### What Happens to the Data?
+#### What Happens to the Data?
 
 ⚠️ mkfs.ext4 destroys the existing filesystem structure and makes existing data inaccessible.
 
@@ -156,3 +156,24 @@ The partition gets a new file system structure:
 The old files are effectively lost/inaccessible and may be overwritten as the filesystem is used.
 ```
 
+### Create Mount Point
+
+- `sudo mkdir -p /mnt/disk1` - Mount in root directory
+- `mkdir -p ~/mnt/disk1` - Mount in home directory
+
+### Mount the Partition
+- `sudo mount /dev/vdb1 /mnt/disk1`
+
+### Verify
+```
+lsblk
+
+or:
+
+df -h
+
+Expected:
+
+vdb
+└─vdb1   1G  part  /mnt/disk1
+```
