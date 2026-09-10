@@ -82,3 +82,77 @@ Expected output:
 vdb           252:16   0    2G  0 disk
 └─vdb1        252:17   0    1G  0 part
 ```
+
+## Mounting a Disk Partition
+
+### Before mounting, make sure /dev/vdb1 has a filesystem:
+
+- `sudo mkfs.ext4 /dev/vdb1`
+
+#### Why Do We Need a File System?
+
+A disk partition is like an empty piece of land. Before you can store and organize files on it, Linux needs a file system.
+
+```
+For example:
+
+Disk
+ └── Partition (/dev/vdb1)
+       └── File System (ext4)
+             ├── Files
+             ├── Directories
+             └── File Information
+```
+#### A file system tells the operating system:
+
+- Where files are stored
+- What blocks belong to each file
+- File names and directories
+- File permissions
+- File ownership
+- File size
+- Free and used disk space
+
+**Without a file system, Linux cannot properly organize normal files and directories on the partition.**
+
+##### What Does mkfs.ext4 Mean?
+
+```
+The command:
+
+sudo mkfs.ext4 /dev/vdb1
+
+means:
+
+mkfs = Make File System
+ext4 = The type of file system
+/dev/vdb1 = The partition where the file system will be created
+
+It creates an EXT4 file system on /dev/vdb1.
+```
+
+##### What Happens to the Data?
+
+⚠️ mkfs.ext4 destroys the existing filesystem structure and makes existing data inaccessible.
+
+```
+For example, imagine /dev/vdb1 contains:
+
+/dev/vdb1
+├── photo.jpg
+├── document.pdf
+└── project/
+
+After running:
+
+sudo mkfs.ext4 /dev/vdb1
+
+The partition gets a new file system structure:
+
+/dev/vdb1
+└── EXT4 File System
+    └── Empty Space
+
+The old files are effectively lost/inaccessible and may be overwritten as the filesystem is used.
+```
+
