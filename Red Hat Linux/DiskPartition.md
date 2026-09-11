@@ -238,7 +238,7 @@ The biggest advantage is flexibility:
 - ✅ Resize volumes (depending on filesystem/configuration)
 - ✅ Create snapshots
 
-###Useful LVM commands
+### Useful LVM commands
 ```
 # Show Physical Volumes
 pvs
