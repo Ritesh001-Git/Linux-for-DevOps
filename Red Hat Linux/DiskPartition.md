@@ -215,3 +215,43 @@ Disk
              └── Logical Volume (LV) → swap
 ```
 
+### From your lsblk output:
+```
+vda3
+├── rhel-root  → /
+└── rhel-swap  → [SWAP]
+```
+
+### This means:
+
+- /dev/vda3 is being used by LVM
+- rhel is likely the Volume Group (VG)
+- rhel-root is a Logical Volume (LV) mounted at /
+- rhel-swap is a Logical Volume (LV) used as swap
+
+### Why use LVM?
+The biggest advantage is flexibility:
+
+- ✅ Easily increase storage size
+- ✅ Combine multiple disks into one Volume Group
+- ✅ Create logical volumes
+- ✅ Resize volumes (depending on filesystem/configuration)
+- ✅ Create snapshots
+
+###Useful LVM commands
+```
+# Show Physical Volumes
+pvs
+
+# Show Volume Groups
+vgs
+
+# Show Logical Volumes
+lvs
+
+# For detailed information:
+
+pvdisplay
+vgdisplay
+lvdisplay
+```
