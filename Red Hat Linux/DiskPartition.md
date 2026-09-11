@@ -177,3 +177,6 @@ Expected:
 vdb
 └─vdb1   1G  part  /mnt/disk1
 ```
+
+### To unmount the partition
+- `sudo umount /dev/vdb1 /mnt/disk1`
