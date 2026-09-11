@@ -181,6 +181,19 @@ vdb
 ### To unmount the partition
 - `sudo umount /dev/vdb1 /mnt/disk1`
 
+### Persistent Mount
+- First, identify the filesystem type - `lsblk -f`
+- Create a mount directory - `sudo mkdir -p /mnt/disk1`
+- Edit /etc/fstab - `nano /etc/fstab`
+```
+Format of /etc/fstab
+
+UUID=<UUID>  <mount-point>  <filesystem-type>  <options>  <dump>  <fsck>
+
+UUID=830ac5a0-e2ed-45d3-a4d8-ea5b11668dcb  /mnt/disk1  ext4  defaults  0  2
+```
+- Test the /etc/fstab entry - `sudo mount -a`
+
 ## LVM (Logical Volume Manager)
 LVM stands for Logical Volume Manager. It is a storage management system in Linux that provides more flexibility than traditional disk partitions.
 
