@@ -180,3 +180,25 @@ vdb
 
 ### To unmount the partition
 - `sudo umount /dev/vdb1 /mnt/disk1`
+
+## LVM (Logical Volume Manager)
+LVM stands for Logical Volume Manager. It is a storage management system in Linux that provides more flexibility than traditional disk partitions.
+
+```
+Traditional partitioning
+Disk → Partition → Filesystem → Mount
+
+Example:
+
+/dev/vda → /dev/vda3 → /
+With LVM
+Disk
+ │
+ └── Physical Volume (PV)
+       │
+       └── Volume Group (VG)
+             │
+             ├── Logical Volume (LV) → /
+             └── Logical Volume (LV) → swap
+```
+
