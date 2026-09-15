@@ -194,6 +194,11 @@ UUID=830ac5a0-e2ed-45d3-a4d8-ea5b11668dcb  /mnt/disk1  ext4  defaults  0  2
 ```
 - Test the /etc/fstab entry - `sudo mount -a`
 
+### Convert the partition to a Swap Space
+- Format /dev/vdb2 as swap - `sudo mkswap /dev/vdb2`
+- Enable the swap space. - `sudo swapon /dev/vdb2`
+- To verify - `swapon --show`
+
 ## LVM (Logical Volume Manager)
 LVM stands for Logical Volume Manager. It is a storage management system in Linux that provides more flexibility than traditional disk partitions.
 
