@@ -211,6 +211,11 @@ Verify the mount.
 df -hT
 ```
 
+## 10. Extend the Logical Volume
+```
+sudo lvextend -L +500M /dev/VGp/lv01
+```
+
 ---
 
 ## 10. Essential LVM Commands Cheat Sheet
